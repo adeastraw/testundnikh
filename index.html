@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Social Sharing Meta Tags (WhatsApp, Instagram, Facebook Preview) -->
+  <title>The Wedding of Rizky & Amanda | Undangan Pernikahan</title>
+  <meta name="description" content="Dengan penuh rasa syukur, kami mengundang Anda untuk merayakan hari bahagia pernikahan kami, Rizky Pratama & Amanda Maharani.">
+  <meta name="keywords" content="undangan pernikahan digital, wedding invitation, rizky amanda, wedding website">
+  <meta name="author" content="Rizky & Amanda">
+  
+  <meta property="og:title" content="The Wedding of Rizky & Amanda">
+  <meta property="og:description" content="Buka undangan pernikahan digital kami untuk mengetahui jadwal acara, lokasi, dan membagikan doa restu.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond, Sacramento, Plus Jakarta Sans, Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 (Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-scroll">
+
+  <!-- Canvas for Festive Petals & Sparkles Animation -->
+  <canvas id="festiveCanvas"></canvas>
+
+  <!-- Background Music Element (Royalty Free Romantic Acoustic) -->
+  <audio id="weddingAudio" preload="auto">
+    <!-- Primary audio source: Romantic instrumental wedding royalty-free music -->
+    <source src="https://assets.mixkit.co/music/preview/mixkit-wedding-waltz-293.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Audio Widget -->
+  <div class="floating-audio-widget" id="floatingAudioWidget">
+    <button class="audio-disc-btn" id="audioToggleBtn" title="Putar Musik">
+      <i class="fas fa-play" id="audioIcon"></i>
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       1. COVER ENVELOPE (FIRST SCREEN SHOWN BEFORE OPENING)
+       ========================================================================= -->
+  <div class="cover-envelope" id="coverEnvelope">
+    <div class="cover-card">
+      <div class="cover-decor-corner top-left"></div>
+      <div class="cover-decor-corner bottom-right"></div>
+
+      <div class="cover-header">
+        <p class="wedding-tag">The Wedding Of</p>
+        <h1 class="cover-couple-name">
+          <span class="gold-gradient-text">Rizky</span>
+          <span class="ampersand">&amp;</span>
+          <span class="gold-gradient-text">Amanda</span>
+        </h1>
+      </div>
+
+      <div class="cover-photo-frame">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&auto=format&fit=crop&q=80" alt="Rizky & Amanda Prewedding">
+      </div>
+
+      <div class="recipient-box">
+        <p class="dear-label">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+        <h2 class="recipient-name" id="guestRecipientName">Tamu Undangan Istimewa</h2>
+      </div>
+
+      <button class="btn-open-invitation" id="btnOpenInvitation">
+        <i class="fas fa-envelope-open-text"></i>
+        <span>Buka Undangan</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MAIN INVITATION WRAPPER (MOBILE-OPTIMIZED WITH DESKTOP FRAME)
+       ========================================================================= -->
+  <div class="app-container" id="mainInvitation">
+
+    <!-- 2. HERO BANNER -->
+    <header class="invitation-section hero-section">
+      <div class="hero-content">
+        <p class="hero-subtitle animate-on-scroll">Walimatul 'Ursy</p>
+        <h2 class="hero-names animate-on-scroll">
+          <span class="gold-gradient-text">Rizky</span>
+          <span class="amp">&amp;</span>
+          <span class="gold-gradient-text">Amanda</span>
+        </h2>
+        <div class="hero-date-badge animate-on-scroll">
+          <i class="far fa-calendar-alt"></i>
+          <span>Sabtu, 12 Desember 2026</span>
+        </div>
+        <div class="hero-scroll-indicator">
+          <span>Gulir ke Bawah</span><br>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. AYAT / QUOTE SECTION -->
+    <section class="invitation-section quote-section border-bottom">
+      <div class="quote-card animate-on-scroll">
+        <p class="quote-arabic">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
+        </p>
+        <p class="quote-translation">
+          "Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
+        </p>
+        <span class="quote-source">— QS. Ar-Rum: 21</span>
+      </div>
+    </section>
+
+    <!-- 4. COUPLE PROFILES -->
+    <section class="invitation-section border-bottom" id="coupleSection">
+      <span class="section-tag animate-on-scroll">Mempelai Berbahagia</span>
+      <h2 class="section-title animate-on-scroll">Kedua Mempelai</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, kami bermaksud melangsungkan pernikahan putra dan putri kami tercinta:
+      </p>
+
+      <div class="couple-container">
+        <!-- Groom Profile -->
+        <div class="couple-profile-card animate-on-scroll">
+          <div class="couple-img-wrapper">
+            <img class="couple-img-arch" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=80" alt="Mempelai Pria - Rizky Pratama">
+          </div>
+          <h3 class="couple-name gold-gradient-text">Rizky Pratama, S.T.</h3>
+          <p class="couple-fullname">Putra Pertama</p>
+          <p class="couple-parents">
+            Putra tercinta dari<br>
+            <strong>Bpk. Bambang Sutrisno</strong> &amp; <strong>Ibu Sri Rahayu</strong>
+          </p>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="couple-instagram-btn">
+            <i class="fab fa-instagram"></i> @rizky.pratama
+          </a>
+        </div>
+
+        <div class="couple-divider-amp animate-on-scroll">&amp;</div>
+
+        <!-- Bride Profile -->
+        <div class="couple-profile-card animate-on-scroll">
+          <div class="couple-img-wrapper">
+            <img class="couple-img-arch" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=80" alt="Mempelai Wanita - Amanda Maharani">
+          </div>
+          <h3 class="couple-name gold-gradient-text">Amanda Maharani, S.Ds.</h3>
+          <p class="couple-fullname">Putri Kedua</p>
+          <p class="couple-parents">
+            Putri tercinta dari<br>
+            <strong>Bpk. Hendra Gunawan</strong> &amp; <strong>Ibu Ratna Dewi</strong>
+          </p>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="couple-instagram-btn">
+            <i class="fab fa-instagram"></i> @amandamaharani
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. THE LOVE STORY TIMELINE -->
+    <section class="invitation-section border-bottom" id="storySection">
+      <span class="section-tag animate-on-scroll">Kisah Kami</span>
+      <h2 class="section-title animate-on-scroll">Cerita Cinta</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Setiap detik perjalanan kami dirajut oleh takdir dan doa yang bermuara pada satu janji suci.
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">OKTOBER 2021</div>
+          <h3 class="timeline-title">Pertama Kali Bersua</h3>
+          <p class="timeline-desc">
+            Pertemuan tak terduga di sebuah seminar arsitektur di Bandung. Sebuah tatap mata singkat yang menumbuhkan rasa ingin mengenal lebih dalam.
+          </p>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">AGUSTUS 2022</div>
+          <h3 class="timeline-title">Menjalin Komitmen</h3>
+          <p class="timeline-desc">
+            Setelah melewati berbagai canda, tawa, dan cerita, kami memutuskan untuk berkomitmen melangkah bersama saling mendukung tujuan hidup masing-masing.
+          </p>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">MEI 2026</div>
+          <h3 class="timeline-title">Hari Lamaran (Engagement)</h3>
+          <p class="timeline-desc">
+            Di hadapan kedua keluarga besar yang penuh kehangatan, Rizky mengutarakan niat tulus untuk meminang Amanda sebagai pendamping hidup selamanya.
+          </p>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">DESEMBER 2026</div>
+          <h3 class="timeline-title">Menuju Pelaminan</h3>
+          <p class="timeline-desc">
+            Ikrar suci akad nikah yang menyatukan dua jiwa, dua keluarga, serta mengawali lembaran indah pernikahan kami.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. COUNTDOWN & SAVE THE DATE -->
+    <section class="invitation-section border-bottom" id="eventSection">
+      <span class="section-tag animate-on-scroll">Save The Date</span>
+      <h2 class="section-title animate-on-scroll">Hitung Mundur</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Menuju momen sakral yang paling kami nanti-nantikan bersama Anda:
+      </p>
+
+      <!-- Countdown Cards -->
+      <div class="countdown-container animate-on-scroll">
+        <div class="timer-box">
+          <div class="timer-val" id="timerDays">00</div>
+          <div class="timer-lbl">Hari</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-val" id="timerHours">00</div>
+          <div class="timer-lbl">Jam</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-val" id="timerMins">00</div>
+          <div class="timer-lbl">Menit</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-val" id="timerSecs">00</div>
+          <div class="timer-lbl">Detik</div>
+        </div>
+      </div>
+      <p id="timerStatusNote" class="text-gold" style="font-size: 0.85rem; margin-top: -1rem; margin-bottom: 2rem;"></p>
+
+      <!-- Event 1: Akad Nikah -->
+      <div class="event-card animate-on-scroll">
+        <div class="event-icon-badge">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3 class="event-type-title gold-gradient-text">Akad Nikah</h3>
+        
+        <div class="event-info-group">
+          <p><i class="far fa-calendar-check"></i> <strong>Sabtu, 12 Desember 2026</strong></p>
+          <p><i class="far fa-clock"></i> 08.00 - 10.00 WIB</p>
+          <div class="event-venue-name">Masjid Agung Al-Azhar Senayan</div>
+          <div class="event-venue-address">Jl. Sisingamangaraja No.1, Kebayoran Baru, Jakarta Selatan</div>
+        </div>
+
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Rizky+%26+Amanda&dates=20261212T010000Z/20261212T030000Z&details=Pernikahan+Rizky+dan+Amanda&location=Masjid+Agung+Al-Azhar+Jakarta" target="_blank" rel="noopener noreferrer" class="btn-outline-gold">
+          <i class="far fa-calendar-plus"></i> Simpan ke Google Calendar
+        </a>
+      </div>
+
+      <!-- Event 2: Resepsi Pernikahan -->
+      <div class="event-card animate-on-scroll">
+        <div class="event-icon-badge">
+          <i class="fas fa-glass-cheers"></i>
+        </div>
+        <h3 class="event-type-title gold-gradient-text">Resepsi Pernikahan</h3>
+        
+        <div class="event-info-group">
+          <p><i class="far fa-calendar-check"></i> <strong>Sabtu, 12 Desember 2026</strong></p>
+          <p><i class="far fa-clock"></i> 11.00 - 14.30 WIB</p>
+          <div class="event-venue-name">Grand Ballroom Hotel Mulia Senayan</div>
+          <div class="event-venue-address">Jl. Asia Afrika Senayan, Gelora, Tanah Abang, Jakarta Pusat</div>
+        </div>
+
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Pernikahan+Rizky+%26+Amanda&dates=20261212T040000Z/20261212T073000Z&details=Resepsi+Pernikahan+Rizky+dan+Amanda&location=Grand+Ballroom+Hotel+Mulia+Senayan+Jakarta" target="_blank" rel="noopener noreferrer" class="btn-gold-action">
+          <i class="far fa-calendar-plus"></i> Simpan ke Google Calendar
+        </a>
+      </div>
+
+      <!-- Interactive Google Maps Card -->
+      <div class="map-card animate-on-scroll">
+        <iframe 
+          title="Lokasi Pernikahan"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3687313885374!2d106.79753067484435!3d-6.215003660875086!2m3!1f0!2f0!3f0!3m2!1i1024!2f768!4f13.1!3m3!1m2!1s0x2e69f14cf434e3a3%3A0xe2daee8342790757!2sHotel%20Mulia%20Senayan%20Jakarta!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+        
+        <a href="https://maps.google.com/?q=Hotel+Mulia+Senayan+Jakarta" target="_blank" rel="noopener noreferrer" class="btn-gold-action" style="margin-top: 1rem;">
+          <i class="fas fa-map-marked-alt"></i> Buka Petunjuk Arah (Google Maps)
+        </a>
+      </div>
+
+      <!-- Dresscode Box -->
+      <div class="dresscode-box animate-on-scroll">
+        <h4 style="color: #FFF; font-size: 1rem; margin-bottom: 0.3rem;"><i class="fas fa-tshirt"></i> Panduan Dresscode</h4>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+          Sentuhan Warna: <strong>Earth Tone / Champagne Gold / Sage Green</strong>
+        </p>
+        <div class="dresscode-palette">
+          <div class="color-swatch" style="background-color: #D4AF37;" title="Champagne Gold"></div>
+          <div class="color-swatch" style="background-color: #8A9A86;" title="Sage Green"></div>
+          <div class="color-swatch" style="background-color: #C8B29B;" title="Warm Earth"></div>
+          <div class="color-swatch" style="background-color: #2F3E46;" title="Deep Forest"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PHOTO GALLERY -->
+    <section class="invitation-section border-bottom" id="gallerySection">
+      <span class="section-tag animate-on-scroll">Momen Bahagia</span>
+      <h2 class="section-title animate-on-scroll">Galeri Prewedding</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Cuplikan kenangan terindah dalam menyongsong ikatan janji suci kami.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item tall animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80" alt="Prewedding Moment 1" loading="lazy">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&auto=format&fit=crop&q=80" alt="Prewedding Moment 2" loading="lazy">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&auto=format&fit=crop&q=80" alt="Prewedding Moment 3" loading="lazy">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&auto=format&fit=crop&q=80" alt="Prewedding Moment 4" loading="lazy">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item tall animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&auto=format&fit=crop&q=80" alt="Prewedding Moment 5" loading="lazy">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&auto=format&fit=crop&q=80" alt="Prewedding Moment 6" loading="lazy">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. WEDDING GIFT / AMPLOP DIGITAL -->
+    <section class="invitation-section border-bottom" id="giftSection">
+      <span class="section-tag animate-on-scroll">Tanda Kasih</span>
+      <h2 class="section-title animate-on-scroll">Amplop Digital</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Doa restu Anda adalah hadiah terindah bagi kami. Namun jika Anda bermaksud memberi tanda kasih lebih, kami sediakan amplop digital berikut:
+      </p>
+
+      <div class="bank-cards-container">
+        <!-- Bank BCA Card -->
+        <div class="bank-card animate-on-scroll">
+          <div class="bank-card-top">
+            <span class="bank-logo">BCA</span>
+            <div class="bank-chip"></div>
+          </div>
+          <div class="bank-number">5820 9182 34</div>
+          <div class="bank-holder">a.n. Rizky Pratama</div>
+          <button class="btn-copy-acc" data-copy-text="5820918234" data-copy-label="No. Rekening BCA">
+            <i class="far fa-copy"></i> Salin No. Rekening
+          </button>
+        </div>
+
+        <!-- Bank Mandiri Card -->
+        <div class="bank-card animate-on-scroll">
+          <div class="bank-card-top">
+            <span class="bank-logo">MANDIRI</span>
+            <div class="bank-chip"></div>
+          </div>
+          <div class="bank-number">1370 0192 8412 0</div>
+          <div class="bank-holder">a.n. Amanda Maharani</div>
+          <button class="btn-copy-acc" data-copy-text="1370019284120" data-copy-label="No. Rekening Mandiri">
+            <i class="far fa-copy"></i> Salin No. Rekening
+          </button>
+        </div>
+      </div>
+
+      <!-- QRIS Button Trigger -->
+      <button class="btn-outline-gold animate-on-scroll" id="btnShowQris" style="margin-top: 1.5rem;">
+        <i class="fas fa-qrcode"></i> Bayar / Kirim via QRIS
+      </button>
+
+      <!-- Physical Gift Card -->
+      <div class="physical-gift-card animate-on-scroll">
+        <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 0.4rem;">
+          <i class="fas fa-gift" style="color: var(--color-primary);"></i> Kirim Kado Fisik
+        </h4>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">
+          Penerima: Amanda Maharani (0812-3456-7890)<br>
+          Alamat: Residence Kemang Pratama Blok C No. 12, Senayan, Jakarta Selatan (Kode Pos 12190)
+        </p>
+        <button class="btn-copy-acc" data-copy-text="Residence Kemang Pratama Blok C No. 12, Senayan, Jakarta Selatan (Kode Pos 12190) - Amanda Maharani (081234567890)" data-copy-label="Alamat Pengiriman Kado" style="margin-top: 0.8rem;">
+          <i class="far fa-copy"></i> Salin Alamat Kado
+        </button>
+      </div>
+    </section>
+
+    <!-- 9. RSVP & GUESTBOOK (BUKU TAMU) -->
+    <section class="invitation-section border-bottom" id="rsvpSection">
+      <span class="section-tag animate-on-scroll">Konfirmasi &amp; Ucapan</span>
+      <h2 class="section-title animate-on-scroll">Buku Tamu &amp; RSVP</h2>
+      <p class="section-subtitle animate-on-scroll">
+        Kehadiran dan doa restu Anda merupakan suatu kehormatan dan kebahagiaan tak ternilai bagi kami.
+      </p>
+
+      <!-- Form RSVP -->
+      <form class="rsvp-form-card animate-on-scroll" id="rsvpForm">
+        <div class="form-group">
+          <label for="rsvpName"><i class="far fa-user"></i> Nama Lengkap</label>
+          <input type="text" id="rsvpName" class="form-control" placeholder="Contoh: Budi Santoso" required>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvpAttendance"><i class="far fa-check-circle"></i> Konfirmasi Kehadiran</label>
+          <select id="rsvpAttendance" class="form-control" required>
+            <option value="hadir">Ya, Saya Akan Hadir</option>
+            <option value="ragu">Masih Ragu-ragu</option>
+            <option value="absen">Maaf, Tidak Bisa Hadir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvpGuests"><i class="fas fa-user-friends"></i> Jumlah Tamu</label>
+          <select id="rsvpGuests" class="form-control">
+            <option value="1">1 Orang</option>
+            <option value="2">2 Orang</option>
+            <option value="3">3 Orang</option>
+            <option value="4">4 Orang (Keluarga)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvpMessage"><i class="far fa-comment-dots"></i> Doa &amp; Ucapan Selamat</label>
+          <textarea id="rsvpMessage" class="form-control" placeholder="Tuliskan ucapan dan doa tulus Anda untuk kedua mempelai..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-rsvp" id="btnSubmitRsvp">
+          <i class="fas fa-paper-plane"></i> Kirim Doa &amp; Konfirmasi
+        </button>
+      </form>
+
+      <!-- Live Wishes Feed -->
+      <div class="wishes-badge-wrap animate-on-scroll">
+        <span class="wish-counter-badge" id="wishCounterBadge">4 Doa Terkirim</span>
+      </div>
+
+      <div class="wishes-list animate-on-scroll" id="wishesList">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="invitation-footer">
+      <p class="section-tag">Ungkapan Terima Kasih</p>
+      <h3 class="footer-couple-name gold-gradient-text">Rizky &amp; Amanda</h3>
+      <p class="footer-thankyou">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu bagi keluarga baru kami.<br><br>
+        <em>Wassalamu'alaikum Warahmatullahi Wabarakatuh</em>
+      </p>
+      <div class="ornament-divider">
+        <span></span>
+        <i class="fas fa-heart"></i>
+        <span></span>
+      </div>
+      <p class="footer-credit">
+        The Wedding of Rizky &amp; Amanda &copy; 2026. All Rights Reserved.<br>
+        Dibuat dengan penuh cinta &bull; Siap Hosting di Vercel
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- =========================================================================
+       MODALS: LIGHTBOX & QRIS
+       ========================================================================= -->
+
+  <!-- Photo Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Tutup Galeri">
+      <i class="fas fa-times"></i>
+    </button>
+    <img src="" id="lightboxImg" alt="Foto Galeri Prewedding">
+  </div>
+
+  <!-- QRIS Modal -->
+  <div class="qris-modal" id="qrisModal">
+    <div class="qris-modal-content">
+      <button class="qris-close" id="qrisClose" aria-label="Tutup QRIS">
+        <i class="fas fa-times"></i>
+      </button>
+      <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: #111;">QRIS Amplop Digital</h3>
+      <p style="font-size: 0.82rem; color: #666; margin-top: 0.2rem;">Scan menggunakan GoPay, OVO, Dana, BCA, atau Livin' Mandiri</p>
+      
+      <!-- Generated High Quality QRIS image representation -->
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=00020101021126610016ID.CO.QRIS.WWW011893600918000000000002150000000000000000303UMI51440014ID.GO.BI.QRIS0102155204581253033605802ID5914RIZKY+AMANDA+WEDDING6007JAKARTA61051219062070703A016304D12B" alt="QRIS Rizky & Amanda Wedding">
+
+      <p style="font-size: 0.88rem; font-weight: 700; color: #111;">Rizky Pratama &amp; Amanda</p>
+      <p style="font-size: 0.75rem; color: #888;">NMID: ID1029384756102</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/confetti.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
